@@ -40,13 +40,26 @@ Seguem abaixo algumas considerações para execução da aplicação:
 
 8. Após o deploy, a aplicação estará apta a responder requisições, porém, não existirão informações cadastradas. Caso queira, realize a carga de informações acessando: http://localhost:8080/xy-inc/rest/pois/initialize
 
-9. Urls para teste:
+9. URLs para teste:
 
-  * Para criação de POI, basta acessar: http://localhost:8080/xy-inc e preencher o formulário
-  * Para consultar todos os POIs, basta acessar: http://localhost:8080/xy-inc/rest/pois/list
-  * Para consultar os POIs, mais próximos, basta acessar: http://localhost:8080/xy-inc/rest/pois/nearest/{X}/{Y}/{maxDistance} onde:
+  * Para criação de POI:                
     
     ```
+    REST: http://localhost:8080/xy-inc/rest/pois/create
+    Página: http://localhost:8080/xy-inc
+    ```
+
+  * Para consultar todos os POIs:
+    
+    ```
+    http://localhost:8080/xy-inc/rest/pois/list
+    ```    
+
+  * Para consultar os POIs, mais próximos, basta acessar:
+    
+    ```
+    http://localhost:8080/xy-inc/rest/pois/nearest/{X}/{Y}/{maxDistance} onde:
+
     X             = Coordenada X
     Y             = Coordenada Y
     maxDistance   = Distância máxima entre as coordenadas informadas e os pontos de interesse (POIs)
