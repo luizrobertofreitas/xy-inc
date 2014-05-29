@@ -104,6 +104,8 @@ public class POIBusiness {
 	 */
 	public String initialize() {
 		
+		dropCollection();
+		
 		POIDBObject lanchonete = new POIDBObject(27, 12, "Lanchonete");
 		POIDBObject posto = new POIDBObject(31, 18, "Posto");
 		POIDBObject joalheria = new POIDBObject(15, 12, "Joalheria");
