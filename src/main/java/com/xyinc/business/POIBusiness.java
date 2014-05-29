@@ -18,11 +18,19 @@ public class POIBusiness {
 
 	private MongoDao mongoDao;
 	
+	private DBObject fieldsObject;
+	
 	/**
 	 * Constructor
 	 */
 	public POIBusiness() {
 		mongoDao = new MongoDao(POIDBObject.POI_COLLECTION_NAME);
+		
+		fieldsObject = new BasicDBObject();
+		fieldsObject.put(POIDBObject.NAME_KEY_FIELD, true);
+		fieldsObject.put(POIDBObject.X_KEY_FIELD, true);
+		fieldsObject.put(POIDBObject.Y_KEY_FIELD, true);
+		fieldsObject.put(POIDBObject.ID_KEY_FIELD, false);
 	}
 	
 	/**
@@ -31,7 +39,7 @@ public class POIBusiness {
 	 * @return JSON String
 	 */
 	public BasicDBList findAll() {
-		DBCursor cursor = mongoDao.query(new BasicDBObject());
+		DBCursor cursor = mongoDao.query(new BasicDBObject(), fieldsObject);
 		
 		BasicDBList dbos = new BasicDBList();
 		
@@ -53,7 +61,7 @@ public class POIBusiness {
 	 */
 	public BasicDBList findNearest(Integer currentX, Integer currentY, Integer maxDistance) {
 
-		DBCursor cursor = mongoDao.query(new BasicDBObject());
+		DBCursor cursor = mongoDao.query(new BasicDBObject(), fieldsObject);
 		
 		BasicDBList dbos = new BasicDBList();
 		

@@ -16,6 +16,7 @@ public class POIBusinessTest {
 	@Before
 	public void setUp() throws Exception {
 		business = new POIBusiness();
+		business.dropCollection();
 		business.initialize();
 	}
 

@@ -30,10 +30,11 @@ public class MongoDao {
 	 * Returns all queried documents from collection
 	 * 
 	 * @param queryObject
+	 * @param queryFields
 	 * @return DBCursor listing all documents queried from collection
 	 */
-	public DBCursor query(DBObject queryObject) {
-		return collection.find(queryObject);
+	public DBCursor query(DBObject queryObject, DBObject fieldsObject) {
+		return collection.find(queryObject, fieldsObject);
 	}
 	
 	/**

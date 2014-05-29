@@ -18,6 +18,7 @@ public class POIServiceTest {
 	@Before
 	public void setUp() throws Exception {
 		service = new POIService();
+		service.dropCollection();
 		service.initialize();
 	}
 
