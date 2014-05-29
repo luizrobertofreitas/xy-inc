@@ -4,7 +4,6 @@ import java.util.Map;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 
 public class POIDBObject extends BasicDBObject {
 
@@ -69,14 +68,6 @@ public class POIDBObject extends BasicDBObject {
 		}
 		
 		return isValid;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.mongodb.BasicDBObject#toString()
-	 */
-	public String toString() {
-		this.remove(ID_KEY_FIELD);
-		return JSON.serialize(this);
 	}
 	
 	/**
