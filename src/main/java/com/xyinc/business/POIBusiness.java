@@ -1,5 +1,8 @@
 package com.xyinc.business;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
@@ -60,8 +63,18 @@ public class POIBusiness {
 	 * @return JSON String
 	 */
 	public BasicDBList findNearest(Integer currentX, Integer currentY, Integer maxDistance) {
-
-		DBCursor cursor = mongoDao.query(new BasicDBObject(), fieldsObject);
+		
+		Integer x1 = currentX - maxDistance;
+		Integer x2 = currentX + maxDistance;
+		
+		Integer y1 = currentY - maxDistance;
+		Integer y2 = currentY + maxDistance;
+		
+		List<BasicDBObject> conditions = new ArrayList<BasicDBObject>();
+		conditions.add(new BasicDBObject("x", new BasicDBObject("$gte", x1).append("$lte", x2)));
+		conditions.add(new BasicDBObject("y", new BasicDBObject("$gte", y1).append("$lte", y2)));
+		
+		DBCursor cursor = mongoDao.query(new BasicDBObject("$and", conditions), fieldsObject);
 		
 		BasicDBList dbos = new BasicDBList();
 		
