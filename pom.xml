@@ -37,16 +37,6 @@
     
   </dependencies>
   
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>2.5.4</version>
-      </plugin>
-    </plugins>
-  </reporting>
-  
   <build>
     <finalName>xy-inc</finalName>
   </build>
