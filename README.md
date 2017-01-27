@@ -1,6 +1,4 @@
-﻿# Aplicação de pontos de interesse (POI) #
-
-# Teste #
+# Aplicação de pontos de interesse (POI) #
 
 Aplicativo para cadastro de pontos de interesse (POI). Esta aplicação foi desenvolvida em Java e utiliza MongoDB para armazenamento das informações. 
 
